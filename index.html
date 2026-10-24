@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="selection:bg-cyan-200 dark:selection:bg-cyan-700">
+<html lang="id" class="dark selection:bg-cyan-200 dark:selection:bg-cyan-700">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -114,13 +114,6 @@
                 <h1 class="text-lg md:text-2xl font-black tracking-wide text-cyan-800 dark:text-cyan-400 truncate font-tech">LITERASI INFORMASI DIGITAL</h1>
                 <p class="text-[10px] md:text-xs text-blue-600 dark:text-blue-400 tracking-[0.2em] font-medium uppercase font-digital">Etika Digital, Privasi, Keamanan, dan Jejak Digital</p>
             </div>
-        </div>
-        
-        <div class="flex items-center gap-2 shrink-0">
-            <button onclick="toggleTheme()" class="fixed bottom-6 right-6 z-[100] md:static md:bottom-auto md:right-auto md:z-auto p-3 md:p-3 bg-cyan-50 dark:bg-slate-800 rounded-full hover:bg-cyan-100 dark:hover:bg-slate-700 text-cyan-700 dark:text-cyan-400 transition shadow-2xl md:shadow-sm border border-cyan-200 dark:border-slate-600 active:scale-95 flex items-center justify-center">
-                <span id="theme-icon-light" class="hidden"><i class="fas fa-sun text-xl md:text-lg"></i></span>
-                <span id="theme-icon-dark"><i class="fas fa-moon text-xl md:text-lg"></i></span>
-            </button>
         </div>
     </header>
 
@@ -250,37 +243,6 @@
     </main>
 
     <script>
-        // ==========================================
-        // 1. TEMA & INIT
-        // ==========================================
-        function initTheme() {
-            const savedTheme = localStorage.getItem('presensi_theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-icon-light').classList.remove('hidden');
-                document.getElementById('theme-icon-dark').classList.add('hidden');
-            } else {
-                document.getElementById('theme-icon-light').classList.add('hidden');
-                document.getElementById('theme-icon-dark').classList.remove('hidden');
-            }
-        }
-        
-        function toggleTheme() {
-            const html = document.documentElement;
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            localStorage.setItem('presensi_theme', isDark ? 'dark' : 'light');
-            if (isDark) {
-                document.getElementById('theme-icon-light').classList.remove('hidden');
-                document.getElementById('theme-icon-dark').classList.add('hidden');
-            } else {
-                document.getElementById('theme-icon-light').classList.add('hidden');
-                document.getElementById('theme-icon-dark').classList.remove('hidden');
-            }
-        }
-        initTheme();
-
         // ==========================================
         // 2. KONEKSI GOOGLE SPREADSHEET (GAS)
         // ==========================================
